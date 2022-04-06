@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react"
+import React from "react";
 import Iframe from "./Iframe";
 
-export default function IframesList({number}){
 
-    return (
-        <React.Fragment>
-            { [...Array(number)].map((e, i) => <Iframe />)}
-        </React.Fragment>
-    )
+export default function IframesList({ numberOfFrames, numberOfCols, numberOfRows }) {
+  
+  return (
+    <React.Fragment>
+      {[...Array(numberOfFrames ? parseInt(numberOfFrames) : 0)].map((e, i) => (
+        <Iframe key={i} index={i} title={`title-${i}`}  numberOfCols={numberOfCols} numberOfRows={numberOfRows} numberOfFrames={numberOfFrames}  />
+      ))}
+    </React.Fragment>
+  );
 }
